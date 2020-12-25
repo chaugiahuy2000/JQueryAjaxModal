@@ -1,0 +1,22 @@
+﻿@model IEnumerable<JQueryAjaxModal.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Sản phẩm</h1>
+
+
+    <form asp-action="Create">
+        <input type="submit" value="Create" class="btn btn-primary text-white" />
+    </form>
+    <form asp-controller="Product" asp-action="Index" method="get">
+        <p>
+            Tên sản phẩm: <input type="text" name="SearchString">
+            <input type="submit" value="Filter" />
+        </p>
+    </form>
+<div id="view-all">
+    @await Html.PartialAsync("_ViewAll", Model)
+</div>
+
